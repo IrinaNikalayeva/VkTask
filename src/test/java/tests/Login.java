@@ -11,6 +11,7 @@ import com.vk.api.sdk.httpclient.HttpTransportClient;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
@@ -25,8 +26,11 @@ public class Login extends Browser {
     TransportClient transportClient = HttpTransportClient.getInstance();
     VkApiClient vk = new VkApiClient(transportClient);
 
+    public Login() throws FileNotFoundException {
+    }
+
     @Test()
-    public void login() throws InterruptedException, IOException {
+    public void login() throws InterruptedException, IOException, FileNotFoundException {
         mainPage.initElements(webDriver);
         //PageFactory.initElements(webDriver, homePage);
         webDriver.get("https://vk.com");
@@ -34,6 +38,7 @@ public class Login extends Browser {
         mainPage.doLogin();
         homePage.initElements(webDriver);
         Thread.sleep(20000);
+        homePage.isRightPageisOpen(webDriver);
         homePage.clickOnPhotos();
         photosPage.initElements(webDriver);
         String text = photosPage.createAlbum();
@@ -49,7 +54,7 @@ public class Login extends Browser {
 
 
 
-       // webDriver.quit();
+       //webDriver.quit();
 
     }
 

@@ -8,6 +8,7 @@ import java.io.*;
 public class vUser {
     private String username;
     private String password;
+    private String id;
 
     private static final File FILE = new File("/Automation/task/src/test/resources/Credentials.json");
 
@@ -52,9 +53,14 @@ public class vUser {
         this.password = password;
     }
 
+    public String getId(){
+        id = json.get("id").getAsString();
+        System.out.println("json id " + id);
+        return id;
+    }
     @Override
     public String toString(){
         return new StringBuffer("username:").append(this.username).append("password")
-                .append(this.password).toString();
+                .append(this.password).append("id").toString();
     }
 }
