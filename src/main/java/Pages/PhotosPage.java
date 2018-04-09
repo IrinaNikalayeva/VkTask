@@ -47,7 +47,7 @@ public class PhotosPage extends General {
     //}
 
     public void uploadPhotos() {
-        uploadPhotosBttn.sendKeys("/Automation/task/test_image.jpeg");
+        uploadPhotosBttn.sendKeys("/Automation/VkTask/test_image.jpeg");
         //addToAlbum.click();
         //String id = addToAlbum.getAttribute("id").toString();
         //System.out.println(id);

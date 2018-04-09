@@ -10,7 +10,7 @@ public class vUser {
     private String password;
     private String id;
 
-    private static final File FILE = new File("/Automation/task/src/test/resources/Credentials.json");
+    private static final File FILE = new File("/Automation/VkTask/src/test/resources/Credentials.json");
 
     //@JsonProperty("url")
    // private String url;
