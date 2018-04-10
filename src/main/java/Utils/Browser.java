@@ -1,11 +1,9 @@
 package Utils;
 
 import org.openqa.selenium.Capabilities;
-import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.support.PageFactory;
 
 import java.util.concurrent.TimeUnit;
 
@@ -51,10 +49,9 @@ public class Browser {
         System.out.println(System.getProperty("os.name").toLowerCase());
         String os = System.getProperty("os.name").toLowerCase();
 
-        if (os.contains("win")) {
-           System.setProperty("webdriver.chrome.driver", "/Automation/VkTask/chromedriver.exe");
+        if (os.contains("windows")) {
+          System.setProperty("webdriver.chrome.driver", "/Automation/VkTask/chromedriver.exe");
            webDriver = new ChromeDriver();
-           System.out.println(capabilities.getPlatform());
         } else if (os.contains("mac")) {
             // setUpChrome();
             webDriver = new ChromeDriver();

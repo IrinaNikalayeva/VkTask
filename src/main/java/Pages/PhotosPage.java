@@ -31,6 +31,7 @@ public class PhotosPage extends General {
     String text = Util.getRandomString(6);
 
     public String createAlbum() throws InterruptedException {
+        Thread.sleep(3000);
         addAlbumBttn.click();
         Thread.sleep(4000);
         albumTitle.click();
@@ -47,7 +48,7 @@ public class PhotosPage extends General {
     //}
 
     public void uploadPhotos() {
-        uploadPhotosBttn.sendKeys("/Automation/VkTask/test_image.jpeg");
+        uploadPhotosBttn.sendKeys(System.getProperty("user.dir")+"/test_image.jpeg");
         //addToAlbum.click();
         //String id = addToAlbum.getAttribute("id").toString();
         //System.out.println(id);
