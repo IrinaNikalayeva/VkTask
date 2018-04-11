@@ -21,7 +21,7 @@ public class Login extends Browser {
     MainPage mainPage = new MainPage();
     HomePage homePage = new HomePage();
     PhotosPage photosPage = new PhotosPage();
-    WebDriver webDriver = setUpChrome();
+    WebDriver webDriver = setCapabilities();
 
     TransportClient transportClient = HttpTransportClient.getInstance();
     VkApiClient vk = new VkApiClient(transportClient);
