@@ -2,8 +2,10 @@ package Pages;
 
 
 import model.vUser;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 import java.io.IOException;
 
@@ -28,7 +30,7 @@ public class MainPage extends General {
 
 //    }
 
-    public void doLogin() throws IOException {
+    public void doLogin(WebDriver webDriver) throws IOException {
         vUser vUser = new vUser();
         EmailField.click();
         String username = vUser.getUsername();

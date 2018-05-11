@@ -2,6 +2,7 @@ package Pages;
 
 
 import Utils.Util;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.FindBys;
@@ -30,7 +31,8 @@ public class PhotosPage extends General {
 
     String text = Util.getRandomString(6);
 
-    public String createAlbum() throws InterruptedException {
+    public String createAlbum(WebDriver webDriver) throws InterruptedException {
+        initElements(webDriver);
         Thread.sleep(3000);
         addAlbumBttn.click();
         Thread.sleep(4000);

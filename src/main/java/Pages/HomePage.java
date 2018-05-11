@@ -2,11 +2,10 @@ package Pages;
 
 import model.vUser;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.FindBys;
+import org.openqa.selenium.support.PageFactory;
 
 import java.io.FileNotFoundException;
 
@@ -19,12 +18,13 @@ public class HomePage extends General {
     public HomePage() throws FileNotFoundException {
     }
 
-    public void clickOnPhotos(){
+    public void clickOnPhotos(WebDriver webDriver) throws InterruptedException {
+        initElements(webDriver);
         PhotosButton.click();
     }
 
-    public boolean isRightPageisOpen(WebDriver webdriver){
-        String id = webdriver.findElement(By.xpath("//*[@id='l_pr']/a")).getAttribute("href").toString().substring(17);
+    public boolean isRightPageisOpen(WebDriver webDriver){
+        String id = webDriver.findElement(By.xpath("//*[@id='l_pr']/a")).getAttribute("href").toString().substring(17);
         System.out.println("page id " + id);
         System.out.println("page id boolean " + vUser.getId().equals(id));
         return vUser.getId()== id;
