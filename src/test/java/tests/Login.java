@@ -18,7 +18,6 @@ import java.util.concurrent.TimeUnit;
 
 
 public class Login extends Browser {
-    //vUser user = new vUser();
     MainPage mainPage = new MainPage();
     HomePage homePage = new HomePage();
     PhotosPage photosPage = new PhotosPage();
@@ -42,28 +41,24 @@ public class Login extends Browser {
         //homePage.initElements(webDriver);
         Thread.sleep(20000);
         softAssert.assertTrue(homePage.isRightPageisOpen(webDriver), "wrong page is open!");
-       // homePage.isRightPageisOpen(webDriver);
+        // homePage.isRightPageisOpen(webDriver);
         homePage.clickOnPhotos(webDriver);
         //photosPage.initElements(webDriver);
-        String text = photosPage.createAlbum(webDriver);
+        String albumName = photosPage.createAlbum(webDriver);
         webDriver.manage().timeouts().implicitlyWait(3000, TimeUnit.MILLISECONDS);
         //homePage.clickOnPhotos();
         //Thread.sleep(4000);
-       //photosPage.clickOnBttn();
-       photosPage.uploadPhotos();
-      Thread.sleep(5000);
-      homePage.clickOnPhotos(webDriver);
+        //photosPage.clickOnBttn();
+        String photoID = photosPage.uploadPhotos();
         Thread.sleep(5000);
-      photosPage.isAlbumPresented(text);
+        homePage.clickOnPhotos(webDriver);
+        Thread.sleep(5000);
+        photosPage.isAlbumPresented(albumName);
+        softAssert.assertTrue(photosPage.isRightPhotoLoaded(webDriver, albumName, photoID), "uploaded image is not found");
 
 
-
-       //webDriver.quit();
-
-    }
-
-   // @Test
-   // public void openPhotosPage(){
-
+        //webDriver.quit();
 
     }
+
+}
